@@ -290,7 +290,6 @@ $bdd_codes | ForEach-Object -Parallel {
 
 
 ### FUSION DES CHANGEMENTS
-$bdd_codes = Import-Csv "BDD-CODES.csv"
 
 $bdd_codes | ForEach-Object -Parallel {
 	$bdd_nom = $_.BDD_NOM
