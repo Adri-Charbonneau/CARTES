@@ -155,6 +155,7 @@ $bdd_codes | ForEach-Object -Parallel {
 		if ($OBSERVATION_url.StatusCode -eq "OK") {
 			$cigales_codes = Import-Csv "CIGALES-CODES.csv"
 			### AUTHENTIFICATION
+   			$params = @{client_id="$env:CLIENT_ID";grant_type='password';email="$env:MAIL";password="$env:PASSWORD"}
 			$OBS_TOKEN = (Invoke-WebRequest -Uri "https://observation.org/api/v1/oauth2/token/" -Method POST -Body $params | ConvertFrom-Json).access_token
 			$OBS_HEADERS = @{Authorization="Bearer $OBS_TOKEN"}
 			
